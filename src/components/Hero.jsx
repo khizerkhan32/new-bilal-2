@@ -9,8 +9,8 @@ const Hero = () => {
   return (
     <>
       <Header />
-      <div className="">
-        <Container>
+      <div className="h-screen w-full">
+        <Container className="pt-24 flex flex-col-reverse md:flex-row justify-around md:justify-between items-center">
           <div className="">
             <h2>Hi There, I'm John Deo</h2>
             <h1>Software Engineer</h1>
@@ -18,7 +18,10 @@ const Hero = () => {
             <Button>Hire me</Button>
           </div>
           <div className="">
-            <Lottie animationData={AnimationData} />
+            <Lottie
+              style={{ width: '100%', height: '100%' }}
+              animationData={AnimationData}
+            />
           </div>
         </Container>
       </div>
