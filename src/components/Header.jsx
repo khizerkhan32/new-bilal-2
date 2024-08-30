@@ -22,6 +22,12 @@ const Header = ({ scrollYProgress }) => {
 
   const y = useTransform(scrollYProgress, [0, 0.6], [0, -96]);
 
+  const [activeNavItem, setActiveNavItem] = useState(null);
+
+  const handleNavItemClick = (index) => {
+    setActiveNavItem(index);
+  };
+
   return (
     <motion.div
       style={{ y: y }}
@@ -40,16 +46,19 @@ const Header = ({ scrollYProgress }) => {
         <nav className="h-full w-full flex justify-between items-center">
           <Logo />
           <ul className="hidden md:flex items-center gap-20 text-primary-500">
-            <li>
-              <a href="#home">Home</a>
-            </li>
-            <li>
-              <a href="#projects">Projects</a>
-            </li>
-            <li>
-              <a href="#about">About</a>
-            </li>
-            <Button href="#Contact">Contact</Button>
+            {['Home', 'Projects', 'About', 'Contact'].map((item, index) => (
+              <li
+                key={index}
+                className={`nav-item ${
+                  activeNavItem === index ? 'text-red-500' : ''
+                }`}
+                onClick={() => handleNavItemClick(index)}
+              >
+                <a href={`#${item.toLowerCase()}`}>
+                  {activeNavItem === index ? <Button>{item}</Button> : item}
+                </a>
+              </li>
+            ))}
           </ul>
           <button
             onClick={() => setIsNavBarClosed(!isNavBarClosed)}
@@ -69,18 +78,14 @@ const Header = ({ scrollYProgress }) => {
         }}
         className="md:hidden fixed top-0 left-0 flex flex-col justify-center items-center bg-accent-300 w-full h-screen text-4xl gap-16 transition-all duration-500"
       >
-        <li className="text-primary-100 hover:text-primary-500">
-          <a href="#home">Home</a>
-        </li>
-        <li className="text-primary-100 hover:text-primary-500">
-          <a href="#projects">Projects</a>
-        </li>
-        <li className="text-primary-100 hover:text-primary-500">
-          <a href="#About">About</a>
-        </li>
-        <li className="text-primary-100 hover:text-primary-500">
-          <a href="#Contact">Contact</a>
-        </li>
+        {['Home', 'Projects', 'About', 'Contact'].map((item, index) => (
+          <li
+            key={index}
+            className="nav-item text-primary-100 hover:text-primary-500"
+          >
+            <a href={`#${item.toLowerCase()}`}>{item}</a>
+          </li>
+        ))}
       </ul>
     </motion.div>
   );

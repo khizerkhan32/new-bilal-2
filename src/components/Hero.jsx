@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import Header from './Header';
 import Container from '../hoc/Container';
 import Button from './Button';
@@ -6,12 +6,53 @@ import Lottie from 'lottie-react';
 import AnimationData from '../assets/hero.json';
 import { useScroll, motion } from 'framer-motion';
 
+const titles = [
+  'Software Engineer',
+  'Full Stack Developer',
+  'Mobile App Developer',
+  'UI/UX Designer',
+  'Digital Marketing Expert',
+];
+
+const TypingEffect = ({ text, speed }) => {
+  const [displayedText, setDisplayedText] = useState('');
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    if (index < text.length) {
+      const timeout = setTimeout(() => {
+        setDisplayedText((prev) => prev + text[index]);
+        setIndex(index + 1);
+      }, speed);
+      return () => clearTimeout(timeout);
+    }
+  }, [index, text, speed]);
+
+  useEffect(() => {
+    setDisplayedText('');
+    setIndex(0);
+  }, [text]);
+
+  return <span>{displayedText}</span>;
+};
+
 const Hero = () => {
   const ref = useRef();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start start', 'end start'],
   });
+
+  const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTitleIndex((prevIndex) => (prevIndex + 1) % titles.length);
+    }, titles[currentTitleIndex].length * 100 + 3000); // Adjust timing according to length of text and pause
+
+    return () => clearInterval(interval);
+  }, [currentTitleIndex]);
+
   return (
     <>
       <Header scrollYProgress={scrollYProgress} />
@@ -32,10 +73,10 @@ const Hero = () => {
             className="flex flex-col justify-between text-primary-500 text-center md:items-start gap-3 md:text-left"
           >
             <h2 className="text-2xl uppercase">Hi There, I'm John Deo</h2>
-            <h1 className="text-4xl md:text-7xl lg:whitespace-nowrap">
-              Software Engineer
+            <h1 className="text-4xl md:text-5xl lg:whitespace-nowrap">
+              <TypingEffect text={titles[currentTitleIndex]} speed={100} />
             </h1>
-            <p className="text-lg mb-6">based on United states</p>
+            <p className="text-lg mb-6">based in United States</p>
             <div>
               <Button>Hire me</Button>
             </div>

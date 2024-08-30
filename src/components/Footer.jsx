@@ -22,23 +22,24 @@ const Footer = () => {
       >
         <Container className="flex flex-col gap-10 items-center md:flex-row md:justify-between">
           <Logo />
-          <ul className="flex gap-10 text-primary-100">
-            <li>
+          <ul className="flex gap-4 text-primary-100 sm:gap-10">
+            <li className="nav-item">
               <a href="#home">Home</a>
             </li>
-            <li>
+            <li className="nav-item">
               <a href="#projects">Projects</a>
             </li>
-            <li>
+            <li className="nav-item">
               <a href="#Contact">Contact</a>
             </li>
-            <li>
+            <li className="nav-item">
               <a href="#about">About</a>
             </li>
           </ul>
         </Container>
+
         <p className="mt-10 text-center text-primary-100">
-          &copy: All RIghts Reserved
+          &#169; All RIghts Reserved
         </p>
       </motion.div>
     </footer>

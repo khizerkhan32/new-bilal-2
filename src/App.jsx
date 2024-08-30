@@ -6,17 +6,22 @@ import Projects from './components/Projects';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import StarsCanvas from './components/StarsCanvas';
 
 const App = () => {
   return (
-    <div className="overflow-x-hidden w-full bg-accent-800">
-      <Hero />
-      <About />
-      <History />
-      <Projects />
-      <Testimonials />
-      <Contact />
-      <Footer />
+    <div className="relative overflow-x-hidden w-full bg-accent-800">
+      <StarsCanvas />
+
+      <div className="relative z-[1]">
+        <Hero />
+        <About />
+        <History />
+        <Projects />
+        <Testimonials />
+        <Contact />
+        <Footer />
+      </div>
     </div>
   );
 };

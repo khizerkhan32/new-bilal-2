@@ -22,9 +22,9 @@ const Contact = () => {
           transition={{
             duration: 1,
           }}
-          className="text-6xl text-primary-500 text-center mb-20"
+          className="text-5xl text-primary-500 text-center mb-20"
         >
-          let's Create Someting <br /> Meaningful Togethere
+          Let's Create Something <br /> Meaningful Together
         </motion.h1>
         <motion.div
           initial={{
@@ -43,7 +43,9 @@ const Contact = () => {
           }}
           className=""
         >
-          <Button>Contact Me</Button>
+          <a href="mailto:k.khizer124@gmail.com">
+            <Button>Contact Me</Button>
+          </a>
         </motion.div>
       </Container>
     </div>
