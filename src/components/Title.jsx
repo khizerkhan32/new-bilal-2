@@ -23,7 +23,7 @@ const Title = ({ text1, text2, description }) => {
         <span className="text-primary-100 uppercase tracking-wider">
           {text1}
         </span>
-        <span className="text-primary-500 text-6xl capitalize">{text2}</span>
+        <span className="text-primary-500 text-5xl capitalize">{text2}</span>
       </div>
       <p className="text-sm text-primary-100 mt-5 max-w-2xl">{description}</p>
     </motion.div>
