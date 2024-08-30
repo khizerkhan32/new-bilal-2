@@ -56,6 +56,14 @@ const Projects = () => {
                     </span>
                   ))}
                 </p>
+                <button
+                  onClick={() =>
+                    window.open('https://www.google.com', '_blank')
+                  }
+                  className="p-2 bg-accent-300 rounded-xl shadow-md font-semibold text-sm hover:bg-accent-100 transition-all duration-300"
+                >
+                  live view
+                </button>
               </div>
             </motion.div>
           ))}
