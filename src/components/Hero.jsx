@@ -2,9 +2,11 @@ import React, { useRef, useEffect, useState } from 'react';
 import Header from './Header';
 import Container from '../hoc/Container';
 import Button from './Button';
-import Lottie from 'lottie-react';
-import AnimationData from '../assets/hero.json';
+// import Lottie from 'lottie-react';
+// import AnimationData from '../assets/hero.json';
 import { useScroll, motion } from 'framer-motion';
+import EarthCanvas from './EarthCanvas';
+import { slideIn } from '../utils/motion';
 
 const titles = [
   'Software Engineer',
@@ -57,7 +59,7 @@ const Hero = () => {
     <>
       <Header scrollYProgress={scrollYProgress} />
       <div id="home" ref={ref} className="h-screen w-full">
-        <Container className="pt-24 flex flex-col-reverse md:flex-row justify-around md:justify-between items-center">
+        <Container className="pt-24 mt-20 sm:mt-0 flex flex-col-reverse md:flex-row justify-around md:justify-between items-center">
           <motion.div
             initial={{
               opacity: 0,
@@ -81,7 +83,7 @@ const Hero = () => {
               <Button>Hire me</Button>
             </div>
           </motion.div>
-          <motion.div
+          {/* <motion.div
             initial={{
               opacity: 0,
               y: '100px',
@@ -99,6 +101,13 @@ const Hero = () => {
               style={{ width: '100%', height: '100%' }}
               animationData={AnimationData}
             />
+          </motion.div> */}
+          <motion.div
+            variants={slideIn('right', 'tween', 0.2, 1)}
+            // className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px]"
+            className="w-[50vh] sm:w-[40%] md:w-[50%] xl:h-[550px]auto md:h-[490px] h-[350px]"
+          >
+            <EarthCanvas />
           </motion.div>
         </Container>
       </div>

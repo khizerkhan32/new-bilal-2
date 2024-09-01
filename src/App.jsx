@@ -10,7 +10,7 @@ import StarsCanvas from './components/StarsCanvas';
 
 const App = () => {
   return (
-    <div className="relative overflow-x-hidden w-full bg-accent-800">
+    <div className="relative overflow-x-hidden w-full backgroud">
       <StarsCanvas />
 
       <div className="relative z-[1]">

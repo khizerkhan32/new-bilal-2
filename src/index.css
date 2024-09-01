@@ -5,12 +5,12 @@
 @tailwind utilities;
 
 :root {
-  --accent-100: #b36afb;
-  --accent-300: #230043;
+  --accent-100: rgb(179, 106, 251, 0.5);
+  --accent-300: rgb(2, 0, 36, 0.2);
   --accent-500: #a454f3;
-  --accent-800: #110022;
+  --accent-800: rgb(17, 0, 34, 0.5);
 
-  --primary-100: #b4b4b4;
+  --primary-100: #f1f1f1;
   --primary-500: #f1f1f1;
 }
 
@@ -37,3 +37,18 @@ body {
 .nav-item:hover::after {
   width: 100%;
 }
+.backgroud {
+  background: url(../public/141299-OT99AR-158.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* .background {
+  background: url(../public/bilal-background.webp);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+} */
