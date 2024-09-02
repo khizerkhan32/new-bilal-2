@@ -6,7 +6,7 @@ import Button from './Button';
 // import AnimationData from '../assets/hero.json';
 import { useScroll, motion } from 'framer-motion';
 import EarthCanvas from './EarthCanvas';
-import { slideIn } from '../utils/motion';
+// import { slideIn } from '../utils/motion';
 
 const titles = [
   'Software Engineer',
@@ -103,7 +103,18 @@ const Hero = () => {
             />
           </motion.div> */}
           <motion.div
-            variants={slideIn('right', 'tween', 0.2, 1)}
+            initial={{
+              opacity: 0,
+              y: '100px',
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              duration: 1,
+            }}
+            // variants={slideIn('right', 'tween', 0.2, 1)}
             // className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px]"
             className="w-[50vh] sm:w-[40%] md:w-[50%] xl:h-[550px]auto md:h-[490px] h-[350px]"
           >
