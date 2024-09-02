@@ -30,6 +30,29 @@ const Stars = (props) => {
 };
 
 const StarsCanvas = () => {
+  // State to handle WebGL support
+  const [webGLSupported, setWebGLSupported] = useState(true);
+
+  useEffect(() => {
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('webgl') || canvas.getContext('webgl2');
+
+    if (!context) {
+      setWebGLSupported(false);
+    }
+  }, []);
+
+  if (!webGLSupported) {
+    return (
+      <div>
+        <p>
+          Your browser does not support WebGL. Please update your browser or try
+          a different one.
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div className="w-full h-auto absolute inset-0 z-[0]">
       <Canvas camera={{ position: [0, 0, 1] }}>
