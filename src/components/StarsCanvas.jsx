@@ -30,7 +30,6 @@ const Stars = (props) => {
 };
 
 const StarsCanvas = () => {
-  // State to handle WebGL support
   const [webGLSupported, setWebGLSupported] = useState(true);
 
   useEffect(() => {
@@ -46,8 +45,8 @@ const StarsCanvas = () => {
     return (
       <div>
         <p>
-          Your browser does not support WebGL. Please update your browser or try
-          a different one.
+          Your browser or system does not support WebGL. Please update your
+          graphics drivers or try a different browser.
         </p>
       </div>
     );
